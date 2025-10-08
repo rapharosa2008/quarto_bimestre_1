@@ -63,7 +63,6 @@
     <h1>Quiz Clash Royale - Parte 1</h1>
 
     <form id="form1">
-      <!-- Pergunta 1 -->
       <div class="pergunta">
         <p><strong>1. Qual é a arena inicial do Clash Royale?</strong></p>
         <img src="https://via.placeholder.com/200x150.png?text=Campo+de+Treinamento" alt="Campo de Treinamento">
@@ -72,7 +71,6 @@
         <label><input type="radio" name="q1" value="C"> Campo de Treinamento</label>
       </div>
 
-      <!-- Pergunta 2 -->
       <div class="pergunta">
         <p><strong>2. Qual carta é considerada lendária?</strong></p>
         <img src="https://via.placeholder.com/200x150.png?text=Mago+de+Gelo" alt="Mago de Gelo">
@@ -81,7 +79,6 @@
         <label><input type="radio" name="q2" value="C"> Bombardeiro</label>
       </div>
 
-      <!-- Pergunta 3 -->
       <div class="pergunta">
         <p><strong>3. Quantas cartas você pode ter em um deck de batalha?</strong></p>
         <img src="https://via.placeholder.com/200x150.png?text=Deck" alt="Deck">
@@ -90,7 +87,6 @@
         <label><input type="radio" name="q3" value="C"> 10</label>
       </div>
 
-      <!-- Pergunta 4 -->
       <div class="pergunta">
         <p><strong>4. Qual carta pode gerar esqueletos constantemente?</strong></p>
         <img src="https://via.placeholder.com/200x150.png?text=Cabana+de+Esqueletos" alt="Cabana de Esqueletos">
@@ -99,7 +95,6 @@
         <label><input type="radio" name="q4" value="C"> Lápide</label>
       </div>
 
-      <!-- Pergunta 5 -->
       <div class="pergunta">
         <p><strong>5. Qual é o custo de elixir da carta "P.E.K.K.A"?</strong></p>
         <img src="https://via.placeholder.com/200x150.png?text=PEKKA" alt="PEKKA">
@@ -125,9 +120,11 @@
 
       for (let i = 1; i <= 5; i++) {
         const marcada = document.querySelector(`input[name="q${i}"]:checked`);
-        if (marcada) {
-          respostas[`q${i}`] = marcada.value;
+        if (!marcada) {
+          alert("Responda todas as perguntas antes de continuar.");
+          return;
         }
+        respostas[`q${i}`] = marcada.value;
       }
 
       localStorage.setItem("respostas1", JSON.stringify(respostas));
