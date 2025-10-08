@@ -1,61 +1,115 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Quiz Clash Royale - Parte 1</title>
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f0f0;
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    /* Fundo esquerdo */
+    body::before {
+      content: "";
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 180px;
+      height: 100vh;
+      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/7/7f/Prince_Icon.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Fundo direito */
+    body::after {
+      content: "";
+      position: fixed;
+      right: 0;
+      top: 0;
+      width: 180px;
+      height: 100vh;
+      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/1/15/Mega_Minion_Icon.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+
     .container {
-      max-width: 800px;
-      margin: 40px auto;
+      max-width: 700px;
       background: white;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      padding: 25px 40px;
+      border-radius: 10px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.2);
+      position: relative;
+      z-index: 1;
+      margin: 40px;
+      width: 100%;
+      box-sizing: border-box;
     }
+
     h1 {
       text-align: center;
       color: #333;
+      margin-bottom: 30px;
     }
+
     .pergunta {
-      margin-bottom: 25px;
+      margin-bottom: 30px;
     }
-    .pergunta img {
-      max-width: 200px;
-      display: block;
-      margin: 10px auto;
-      border-radius: 8px;
-    }
+
     label {
       display: block;
-      margin: 6px 0;
-      padding: 6px;
+      margin: 8px 0;
+      padding: 8px 12px;
       border: 1px solid #ccc;
-      border-radius: 4px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    label:hover {
+      background-color: #f0f8ff;
+    }
+
+    input[type="radio"] {
+      margin-right: 10px;
       cursor: pointer;
     }
-    input[type="radio"] {
-      margin-right: 8px;
-    }
+
     button {
       display: block;
       margin: 30px auto 0;
-      padding: 10px 20px;
-      font-size: 16px;
+      padding: 12px 30px;
+      font-size: 18px;
       background-color: #007bff;
       color: white;
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
+
     button:hover {
       background-color: #0056b3;
     }
+
   </style>
 </head>
 <body>
@@ -65,7 +119,6 @@
     <form id="form1">
       <div class="pergunta">
         <p><strong>1. Qual é a arena inicial do Clash Royale?</strong></p>
-        <img src="https://via.placeholder.com/200x150.png?text=Campo+de+Treinamento" alt="Campo de Treinamento">
         <label><input type="radio" name="q1" value="A"> Arena Selvagem</label>
         <label><input type="radio" name="q1" value="B"> Arena do Treinador</label>
         <label><input type="radio" name="q1" value="C"> Campo de Treinamento</label>
@@ -73,7 +126,6 @@
 
       <div class="pergunta">
         <p><strong>2. Qual carta é considerada lendária?</strong></p>
-        <img src="https://via.placeholder.com/200x150.png?text=Mago+de+Gelo" alt="Mago de Gelo">
         <label><input type="radio" name="q2" value="A"> Cavaleiro</label>
         <label><input type="radio" name="q2" value="B"> Mago de Gelo</label>
         <label><input type="radio" name="q2" value="C"> Bombardeiro</label>
@@ -81,7 +133,6 @@
 
       <div class="pergunta">
         <p><strong>3. Quantas cartas você pode ter em um deck de batalha?</strong></p>
-        <img src="https://via.placeholder.com/200x150.png?text=Deck" alt="Deck">
         <label><input type="radio" name="q3" value="A"> 8</label>
         <label><input type="radio" name="q3" value="B"> 5</label>
         <label><input type="radio" name="q3" value="C"> 10</label>
@@ -89,7 +140,6 @@
 
       <div class="pergunta">
         <p><strong>4. Qual carta pode gerar esqueletos constantemente?</strong></p>
-        <img src="https://via.placeholder.com/200x150.png?text=Cabana+de+Esqueletos" alt="Cabana de Esqueletos">
         <label><input type="radio" name="q4" value="A"> Gelo</label>
         <label><input type="radio" name="q4" value="B"> Cabana de Esqueletos</label>
         <label><input type="radio" name="q4" value="C"> Lápide</label>
@@ -97,7 +147,6 @@
 
       <div class="pergunta">
         <p><strong>5. Qual é o custo de elixir da carta "P.E.K.K.A"?</strong></p>
-        <img src="https://via.placeholder.com/200x150.png?text=PEKKA" alt="PEKKA">
         <label><input type="radio" name="q5" value="A"> 7</label>
         <label><input type="radio" name="q5" value="B"> 5</label>
         <label><input type="radio" name="q5" value="C"> 9</label>
