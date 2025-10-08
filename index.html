@@ -5,60 +5,131 @@
   <title>Quiz Clash Royale - Parte 1</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
       max-width: 800px;
-      margin: 0 auto;
+      margin: 40px auto;
+      background: white;
       padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
     h1 {
       text-align: center;
+      color: #4a4a4a;
     }
     .pergunta {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    .pergunta img {
+      max-width: 200px;
+      display: block;
+      margin: 10px auto;
+      border-radius: 8px;
+    }
+    label {
+      display: block;
+      margin: 8px 0;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    label:hover {
+      background-color: #eef;
+    }
+    input[type="radio"] {
+      margin-right: 8px;
+    }
+    button {
+      display: block;
+      margin: 0 auto;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
-  <h1>Quiz Clash Royale - Parte 1</h1>
+  <div class="container">
+    <h1>Quiz Clash Royale - Parte 1</h1>
 
-  <form action="pagina2.html" method="get">
-    <div class="pergunta">
-      <p><strong>1. Qual é a arena inicial do Clash Royale?</strong></p>
-      <label><input type="radio" name="q1" value="A"> Arena Selvagem</label><br>
-      <label><input type="radio" name="q1" value="B"> Arena do Treinador</label><br>
-      <label><input type="radio" name="q1" value="C" data-correta="true"> Campo de Treinamento</label>
-    </div>
+    <form id="form1">
+      <!-- Pergunta 1 -->
+      <div class="pergunta">
+        <p><strong>1. Qual é a arena inicial do Clash Royale?</strong></p>
+        <img src="https://via.placeholder.com/200x150.png?text=Campo+de+Treinamento" alt="Campo de Treinamento">
+        <label><input type="radio" name="q1" value="A"> Arena Selvagem</label>
+        <label><input type="radio" name="q1" value="B"> Arena do Treinador</label>
+        <label><input type="radio" name="q1" value="C" data-correta="true"> Campo de Treinamento</label>
+      </div>
 
-    <div class="pergunta">
-      <p><strong>2. Qual carta é considerada lendária?</strong></p>
-      <label><input type="radio" name="q2" value="A"> Cavaleiro</label><br>
-      <label><input type="radio" name="q2" value="B" data-correta="true"> Mago de Gelo</label><br>
-      <label><input type="radio" name="q2" value="C"> Bombardeiro</label>
-    </div>
+      <!-- Pergunta 2 -->
+      <div class="pergunta">
+        <p><strong>2. Qual carta é considerada lendária?</strong></p>
+        <img src="https://via.placeholder.com/200x150.png?text=Mago+de+Gelo" alt="Mago de Gelo">
+        <label><input type="radio" name="q2" value="A"> Cavaleiro</label>
+        <label><input type="radio" name="q2" value="B" data-correta="true"> Mago de Gelo</label>
+        <label><input type="radio" name="q2" value="C"> Bombardeiro</label>
+      </div>
 
-    <div class="pergunta">
-      <p><strong>3. Quantas cartas você pode ter em um deck de batalha?</strong></p>
-      <label><input type="radio" name="q3" value="A" data-correta="true"> 8</label><br>
-      <label><input type="radio" name="q3" value="B"> 5</label><br>
-      <label><input type="radio" name="q3" value="C"> 10</label>
-    </div>
+      <!-- Pergunta 3 -->
+      <div class="pergunta">
+        <p><strong>3. Quantas cartas você pode ter em um deck de batalha?</strong></p>
+        <img src="https://via.placeholder.com/200x150.png?text=Deck" alt="Deck">
+        <label><input type="radio" name="q3" value="A" data-correta="true"> 8</label>
+        <label><input type="radio" name="q3" value="B"> 5</label>
+        <label><input type="radio" name="q3" value="C"> 10</label>
+      </div>
 
-    <div class="pergunta">
-      <p><strong>4. Qual carta pode gerar esqueletos constantemente?</strong></p>
-      <label><input type="radio" name="q4" value="A"> Gelo</label><br>
-      <label><input type="radio" name="q4" value="B" data-correta="true"> Cabana de Esqueletos</label><br>
-      <label><input type="radio" name="q4" value="C"> Lápide</label>
-    </div>
+      <!-- Pergunta 4 -->
+      <div class="pergunta">
+        <p><strong>4. Qual carta pode gerar esqueletos constantemente?</strong></p>
+        <img src="https://via.placeholder.com/200x150.png?text=Cabana+de+Esqueletos" alt="Cabana de Esqueletos">
+        <label><input type="radio" name="q4" value="A"> Gelo</label>
+        <label><input type="radio" name="q4" value="B" data-correta="true"> Cabana de Esqueletos</label>
+        <label><input type="radio" name="q4" value="C"> Lápide</label>
+      </div>
 
-    <div class="pergunta">
-      <p><strong>5. Qual é o custo de elixir da carta "P.E.K.K.A"?</strong></p>
-      <label><input type="radio" name="q5" value="A" data-correta="true"> 7</label><br>
-      <label><input type="radio" name="q5" value="B"> 5</label><br>
-      <label><input type="radio" name="q5" value="C"> 9</label>
-    </div>
+      <!-- Pergunta 5 -->
+      <div class="pergunta">
+        <p><strong>5. Qual é o custo de elixir da carta "P.E.K.K.A"?</strong></p>
+        <img src="https://via.placeholder.com/200x150.png?text=P.E.K.K.A" alt="P.E.K.K.A">
+        <label><input type="radio" name="q5" value="A" data-correta="true"> 7</label>
+        <label><input type="radio" name="q5" value="B"> 5</label>
+        <label><input type="radio" name="q5" value="C"> 9</label>
+      </div>
 
-    <button type="submit">Próxima Página</button>
-  </form>
+      <button type="button" onclick="salvarEIrPraPagina2()">Próxima Página</button>
+    </form>
+  </div>
+
+  <script>
+    function salvarEIrPraPagina2() {
+      const respostas = document.querySelectorAll('#form1 input[type="radio"]:checked');
+      let acertos1 = 0;
+      respostas.forEach(resposta => {
+        if (resposta.dataset.correta === "true") acertos1++;
+      });
+      // salvar no localStorage
+      localStorage.setItem('acertos1', acertos1);
+      // redirecionar para página 2
+      window.location.href = 'pagina2.html';
+    }
+  </script>
 </body>
 </html>
-
