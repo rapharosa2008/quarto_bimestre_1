@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultado do Quiz Clash Royale</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fafafa;
+      padding: 40px;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .pergunta {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+    .correta {
+      color: green;
+      font-weight: bold;
+    }
+    .errada {
+      color: red;
+      font-weight: bold;
+    }
+    .resultado-final {
+      font-size: 1.5em;
+      font-weight: bold;
+      margin-top: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Resultado Final do Quiz</h1>
+    <div id="resultado-detalhado"></div>
+    <div class="resultado-final" id="resultado-final"></div>
+  </div>
+
+  <script>
+    const respostas1 = JSON.parse(localStorage.getItem("respostas1")) || {};
+    const gabarito1 = JSON.parse(localStorage.getItem("gabarito1")) || {};
+    const respostas2 = JSON.parse(localStorage.getItem("respostas2")) || {};
+    const gabarito2 = JSON.parse(localStorage.getItem("gabarito2")) || {};
+
+    const resultadoDiv = document.getElementById("resultado-detalhado");
+    let totalAcertos = 0;
+
+    function mostrarPergunta(numero, respostas, gabarito) {
+      const respostaUsuario = respostas[`q${numero}`];
+      const respostaCorreta = gabarito[`q${numero}`];
+
+      const correta = respostaUsuario === respostaCorreta;
+
+      const div = document.createElement("div");
+      div.classList.add("pergunta");
+      div.innerHTML = `
+        <p><strong>Pergunta ${numero}:</strong></p>
+        <p>Sua resposta: <span class="${correta ? 'correta' : 'errada'}">
+          ${respostaUsuario || 'Nenhuma'} ${correta ? '✔' : '❌'}
+        </span></p>
+        <p>Resposta correta: <strong>${respostaCorreta}</strong></p>
+      `;
+
+      resultadoDiv.appendChild(div);
+
+      if (correta) totalAcertos++;
+    }
+
+    for (let i = 1; i <= 5; i++) {
+      mostrarPergunta(i, respostas1, gabarito1);
+    }
+    for (let i = 6; i <= 10; i++) {
+      mostrarPergunta(i, respostas2, gabarito2);
+    }
+
+    document.getElementById("resultado-final").textContent =
+      `Você acertou ${totalAcertos} de 10 perguntas.`;
+  </script>
+</body>
+</html>
