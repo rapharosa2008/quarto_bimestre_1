@@ -5,9 +5,8 @@
   <title>Quiz Clash Royale - Parte 2</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f0f0;
       margin: 0;
       padding: 0;
     }
@@ -21,10 +20,10 @@
     }
     h1 {
       text-align: center;
-      color: #4a4a4a;
+      color: #333;
     }
     .pergunta {
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
     .pergunta img {
       max-width: 200px;
@@ -34,22 +33,18 @@
     }
     label {
       display: block;
-      margin: 8px 0;
+      margin: 6px 0;
       padding: 6px;
       border: 1px solid #ccc;
       border-radius: 4px;
       cursor: pointer;
-      transition: background-color 0.2s;
-    }
-    label:hover {
-      background-color: #eef;
     }
     input[type="radio"] {
       margin-right: 8px;
     }
     button {
       display: block;
-      margin: 0 auto;
+      margin: 30px auto 0;
       padding: 10px 20px;
       font-size: 16px;
       background-color: #28a745;
@@ -57,17 +52,9 @@
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.2s;
     }
     button:hover {
       background-color: #1e7e34;
-    }
-    #resultado {
-      margin-top: 20px;
-      font-size: 1.4em;
-      font-weight: bold;
-      text-align: center;
-      color: #222;
     }
   </style>
 </head>
@@ -80,67 +67,11 @@
       <div class="pergunta">
         <p><strong>6. Qual dessas cartas é um feitiço?</strong></p>
         <img src="https://via.placeholder.com/200x150.png?text=Bola+de+Fogo" alt="Bola de Fogo">
-        <label><input type="radio" name="q6" value="A" data-correta="true"> Bola de Fogo</label>
+        <label><input type="radio" name="q6" value="A"> Bola de Fogo</label>
         <label><input type="radio" name="q6" value="B"> Valquíria</label>
         <label><input type="radio" name="q6" value="C"> Golem</label>
       </div>
 
       <!-- Pergunta 7 -->
       <div class="pergunta">
-        <p><strong>7. Qual carta é famosa por dividir em dois ao morrer?</strong></p>
-        <img src="https://via.placeholder.com/200x150.png?text=Golem" alt="Golem">
-        <label><input type="radio" name="q7" value="A"> Gigante</label>
-        <label><input type="radio" name="q7" value="B" data-correta="true"> Golem</label>
-        <label><input type="radio" name="q7" value="C"> Mini P.E.K.K.A</label>
-      </div>
-
-      <!-- Pergunta 8 -->
-      <div class="pergunta">
-        <p><strong>8. Qual carta voadora é lendária?</strong></p>
-        <img src="https://via.placeholder.com/200x150.png?text=Lava+Hound" alt="Lava Hound">
-        <label><input type="radio" name="q8" value="A"> Dragão Infernal</label>
-        <label><input type="radio" name="q8" value="B" data-correta="true"> Lava Hound</label>
-        <label><input type="radio" name="q8" value="C"> Mega Servo</label>
-      </div>
-
-      <!-- Pergunta 9 -->
-      <div class="pergunta">
-        <p><strong>9. Qual carta custa 1 de elixir?</strong></p>
-        <img src="https://via.placeholder.com/200x150.png?text=Esp%C3%ADritos+de+Fogo" alt="Espíritos de Fogo">
-        <label><input type="radio" name="q9" value="A"> Mosqueteira</label>
-        <label><input type="radio" name="q9" value="B"> Arqueiras</label>
-        <label><input type="radio" name="q9" value="C" data-correta="true"> Espíritos de Fogo</label>
-      </div>
-
-      <!-- Pergunta 10 -->
-      <div class="pergunta">
-        <p><strong>10. Qual é o nome do criador do Clash Royale?</strong></p>
-        <img src="https://via.placeholder.com/200x150.png?text=Supercell" alt="Supercell">
-        <label><input type="radio" name="q10" value="A"> Epic Games</label>
-        <label><input type="radio" name="q10" value="B" data-correta="true"> Supercell</label>
-        <label><input type="radio" name="q10" value="C"> Tencent</label>
-      </div>
-
-      <button type="button" onclick="verResultadoTotal()">Ver Resultado Total</button>
-    </form>
-
-    <div id="resultado"></div>
-  </div>
-
-  <script>
-    function verResultadoTotal() {
-      const respostas = document.querySelectorAll('#form2 input[type="radio"]:checked');
-      let acertos2 = 0;
-      respostas.forEach(resposta => {
-        if (resposta.dataset.correta === "true") acertos2++;
-      });
-      // pegar o resultado da primeira página
-      const acertos1 = parseInt(localStorage.getItem('acertos1') || '0', 10);
-      const totalAcertos = acertos1 + acertos2;
-
-      const resultadoDiv = document.getElementById('resultado');
-      resultadoDiv.textContent = `Você acertou ${totalAcertos} de 10 no quiz total!`;
-    }
-  </script>
-</body>
-</html>
+        <p><strong>7. Qual
