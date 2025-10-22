@@ -5,30 +5,41 @@
   <title>Quiz Clash Royale - Página 2</title>
   <style>
     body {
-      margin: 0; padding: 0;
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f0f0f0;
-      display: flex; justify-content: center; align-items: center;
-      min-height: 100vh; position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
     }
-    body::before {
-      content: "";
-      position: fixed; left: 0; top: 0;
-      width: 180px; height: 100vh;
-      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/7/7f/Prince_Icon.png');
-      background-size: contain; background-repeat: no-repeat;
-      background-position: center; opacity: 0.15;
-      pointer-events: none; z-index: 0;
-    }
+
+    body::before,
     body::after {
       content: "";
-      position: fixed; right: 0; top: 0;
-      width: 180px; height: 100vh;
-      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/1/15/Mega_Minion_Icon.png');
-      background-size: contain; background-repeat: no-repeat;
-      background-position: center; opacity: 0.15;
-      pointer-events: none; z-index: 0;
+      position: fixed;
+      top: 0;
+      width: 180px;
+      height: 100vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
     }
+
+    body::before {
+      left: 0;
+      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/7/7f/Prince_Icon.png');
+    }
+
+    body::after {
+      right: 0;
+      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/1/15/Mega_Minion_Icon.png');
+    }
+
     .container {
       max-width: 700px;
       background: white;
@@ -41,14 +52,17 @@
       width: 100%;
       box-sizing: border-box;
     }
+
     h1 {
       text-align: center;
       color: #333;
       margin-bottom: 30px;
     }
+
     .pergunta {
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
+
     label {
       display: block;
       margin: 8px 0;
@@ -57,135 +71,83 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.3s;
-      user-select: none;
     }
+
     label:hover {
       background-color: #f0f8ff;
     }
-    input[type="radio"] {
-      margin-right: 10px;
-      cursor: pointer;
-    }
+
     .botoes {
       display: flex;
       justify-content: space-between;
       margin-top: 30px;
     }
-    button {
+
+    .botoes button {
       padding: 12px 30px;
-      font-size: 18px;
+      font-size: 16px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s;
       color: white;
-      user-select: none;
     }
-    #btnBack {
+
+    .botoes .voltar {
       background-color: #6c757d;
     }
-    #btnBack:hover {
-      background-color: #5a6268;
-    }
-    #btnFinish {
+
+    .botoes .finalizar {
       background-color: #28a745;
     }
-    #btnFinish:hover {
-      background-color: #1e7e34;
+
+    .botoes button:hover {
+      opacity: 0.9;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Quiz Clash Royale - Página 2</h1>
+    <h1>Quiz Clash Royale</h1>
 
-    <form id="form2">
-      <div class="pergunta">
-        <p><strong>6. Qual dessas cartas é um feitiço?</strong></p>
-        <label><input type="radio" name="q6" value="A"> Bola de Fogo</label>
-        <label><input type="radio" name="q6" value="B"> Valquíria</label>
-        <label><input type="radio" name="q6" value="C"> Golem</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>6. Qual dessas cartas é um feitiço?</strong></p>
+      <label><input type="radio" name="q6" value="A"> Bola de Fogo</label>
+      <label><input type="radio" name="q6" value="B"> Valquíria</label>
+      <label><input type="radio" name="q6" value="C"> Golem</label>
+    </div>
 
-      <div class="pergunta">
-        <p><strong>7. Qual carta invoca esqueletos?</strong></p>
-        <label><input type="radio" name="q7" value="A"> Cabana de Goblins</label>
-        <label><input type="radio" name="q7" value="B"> Exército de Esqueletos</label>
-        <label><input type="radio" name="q7" value="C"> Espírito de Gelo</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>7. Qual carta é famosa por dividir em dois ao morrer?</strong></p>
+      <label><input type="radio" name="q7" value="A"> Gigante</label>
+      <label><input type="radio" name="q7" value="B"> Golem</label>
+      <label><input type="radio" name="q7" value="C"> Mini P.E.K.K.A</label>
+    </div>
 
-      <div class="pergunta">
-        <p><strong>8. Quantos pontos de vida tem o Gigante?</strong></p>
-        <label><input type="radio" name="q8" value="A"> 1000</label>
-        <label><input type="radio" name="q8" value="B"> 2000</label>
-        <label><input type="radio" name="q8" value="C"> 3000</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>8. Qual carta voadora é lendária?</strong></p>
+      <label><input type="radio" name="q8" value="A"> Dragão Infernal</label>
+      <label><input type="radio" name="q8" value="B"> Lava Hound</label>
+      <label><input type="radio" name="q8" value="C"> Mega Servo</label>
+    </div>
 
-      <div class="pergunta">
-        <p><strong>9. Qual carta é aérea?</strong></p>
-        <label><input type="radio" name="q9" value="A"> Dragão Infernal</label>
-        <label><input type="radio" name="q9" value="B"> Arqueiras</label>
-        <label><input type="radio" name="q9" value="C"> Bárbaros</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>9. Qual carta custa 1 de elixir?</strong></p>
+      <label><input type="radio" name="q9" value="A"> Mosqueteira</label>
+      <label><input type="radio" name="q9" value="B"> Arqueiras</label>
+      <label><input type="radio" name="q9" value="C"> Espíritos de Fogo</label>
+    </div>
 
-      <div class="pergunta">
-        <p><strong>10. Quantos elixir custa a carta "Mago"?</strong></p>
-        <label><input type="radio" name="q10" value="A"> 3</label>
-        <label><input type="radio" name="q10" value="B"> 4</label>
-        <label><input type="radio" name="q10" value="C"> 5</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>10. Qual é o nome do criador do Clash Royale?</strong></p>
+      <label><input type="radio" name="q10" value="A"> Epic Games</label>
+      <label><input type="radio" name="q10" value="B"> Supercell</label>
+      <label><input type="radio" name="q10" value="C"> Tencent</label>
+    </div>
 
-      <div class="botoes">
-        <button type="button" id="btnBack">Voltar</button>
-        <button type="button" id="btnFinish">Finalizar</button>
-      </div>
-    </form>
+    <div class="botoes">
+      <button class="voltar" id="btnVoltar" link href="index.html">Voltar</button>
+      <button class="finalizar" id="btnFinalizar link href="resultado.html">Finalizar</button>
+    </div>
   </div>
-
-  <script>
-    // Carregar respostas salvas e preencher inputs
-    window.onload = function() {
-      const respostasSalvas = JSON.parse(localStorage.getItem("respostas2") || "{}");
-      for (const key in respostasSalvas) {
-        const radio = document.querySelector(`input[name="${key}"][value="${respostasSalvas[key]}"]`);
-        if (radio) radio.checked = true;
-      }
-    };
-
-    document.getElementById('btnBack').addEventListener('click', function() {
-      // Salvar respostas atuais antes de voltar
-      const respostas = {};
-      for (let i = 6; i <= 10; i++) {
-        const marcada = document.querySelector(`input[name="q${i}"]:checked`);
-        if (marcada) respostas[`q${i}`] = marcada.value;
-      }
-      localStorage.setItem("respostas2", JSON.stringify(respostas));
-      window.location.href = "pagina1.html";
-    });
-
-    document.getElementById('btnFinish').addEventListener('click', function() {
-      const respostas = {};
-      const gabarito = {
-        q6: "A",
-        q7: "B",
-        q8: "C",
-        q9: "A",
-        q10: "B"
-      };
-
-      for (let i = 6; i <= 10; i++) {
-        const marcada = document.querySelector(`input[name="q${i}"]:checked`);
-        if (!marcada) {
-          alert("Responda todas as perguntas antes de finalizar.");
-          return;
-        }
-        respostas[`q${i}`] = marcada.value;
-      }
-
-      localStorage.setItem("respostas2", JSON.stringify(respostas));
-      localStorage.setItem("gabarito2", JSON.stringify(gabarito));
-      window.location.href = "resultado.html";
-    });
-  </script>
 </body>
 </html>
