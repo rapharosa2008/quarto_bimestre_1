@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Quiz Clash Royale</title>
+  <title>Quiz Clash Royale - Parte 2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
@@ -17,7 +18,6 @@
       overflow-x: hidden;
     }
 
-    /* Fundo esquerdo */
     body::before {
       content: "";
       position: fixed;
@@ -34,7 +34,6 @@
       z-index: 0;
     }
 
-    /* Fundo direito */
     body::after {
       content: "";
       position: fixed;
@@ -93,91 +92,131 @@
       cursor: pointer;
     }
 
+    .botoes {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
     button {
-      display: block;
-      margin: 30px auto 0;
-      padding: 12px 30px;
-      font-size: 18px;
-      background-color: #28a745;
-      color: white;
+      flex: 1;
+      min-width: 140px;
+      padding: 12px 20px;
+      font-size: 16px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s;
+      color: white;
     }
 
-    button:hover {
+    .btn-voltar {
+      background-color: #6c757d;
+    }
+
+    .btn-voltar:hover {
+      background-color: #5a6268;
+    }
+
+    .btn-finalizar {
+      background-color: #28a745;
+    }
+
+    .btn-finalizar:hover {
       background-color: #1e7e34;
     }
+
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Quiz Clash Royale</h1>
+    <h1>Quiz Clash Royale - Parte 2</h1>
 
     <form id="form2">
       <div class="pergunta">
-        <p><strong>6. Qual dessas cartas é um feitiço?</strong></p>
-        <label><input type="radio" name="q6" value="A"> Bola de Fogo</label>
-        <label><input type="radio" name="q6" value="B"> Valquíria</label>
-        <label><input type="radio" name="q6" value="C"> Golem</label>
+        <p><strong>6. Qual carta voa e tem alto dano?</strong></p>
+        <label><input type="radio" name="q6" value="A"> Mega Servo</label>
+        <label><input type="radio" name="q6" value="B"> Mini P.E.K.K.A</label>
+        <label><input type="radio" name="q6" value="C"> Balão</label>
       </div>
 
       <div class="pergunta">
-        <p><strong>7. Qual carta é famosa por dividir em dois ao morrer?</strong></p>
-        <label><input type="radio" name="q7" value="A"> Gigante</label>
-        <label><input type="radio" name="q7" value="B"> Golem</label>
-        <label><input type="radio" name="q7" value="C"> Mini P.E.K.K.A</label>
+        <p><strong>7. Qual carta é mais eficaz contra tanques?</strong></p>
+        <label><input type="radio" name="q7" value="A"> Mosqueteira</label>
+        <label><input type="radio" name="q7" value="B"> Espírito de Fogo</label>
+        <label><input type="radio" name="q7" value="C"> Arqueiras</label>
       </div>
 
       <div class="pergunta">
-        <p><strong>8. Qual carta voadora é lendária?</strong></p>
-        <label><input type="radio" name="q8" value="A"> Dragão Infernal</label>
-        <label><input type="radio" name="q8" value="B"> Lava Hound</label>
-        <label><input type="radio" name="q8" value="C"> Mega Servo</label>
+        <p><strong>8. Qual carta gera esqueletos ao morrer?</strong></p>
+        <label><input type="radio" name="q8" value="A"> Barril de Esqueletos</label>
+        <label><input type="radio" name="q8" value="B"> Dragão Infernal</label>
+        <label><input type="radio" name="q8" value="C"> Bombardeiro</label>
       </div>
 
       <div class="pergunta">
-        <p><strong>9. Qual carta custa 1 de elixir?</strong></p>
-        <label><input type="radio" name="q9" value="A"> Mosqueteira</label>
-        <label><input type="radio" name="q9" value="B"> Arqueiras</label>
-        <label><input type="radio" name="q9" value="C"> Espíritos de Fogo</label>
+        <p><strong>9. Qual carta tem habilidade de desacelerar inimigos?</strong></p>
+        <label><input type="radio" name="q9" value="A"> Espírito de Gelo</label>
+        <label><input type="radio" name="q9" value="B"> Mago Elétrico</label>
+        <label><input type="radio" name="q9" value="C"> Bruxa</label>
       </div>
 
       <div class="pergunta">
-        <p><strong>10. Qual é o nome do criador do Clash Royale?</strong></p>
-        <label><input type="radio" name="q10" value="A"> Epic Games</label>
-        <label><input type="radio" name="q10" value="B"> Supercell</label>
-        <label><input type="radio" name="q10" value="C"> Tencent</label>
+        <p><strong>10. Qual carta é a mais rápida?</strong></p>
+        <label><input type="radio" name="q10" value="A"> Lápide</label>
+        <label><input type="radio" name="q10" value="B"> Espírito de Fogo</label>
+        <label><input type="radio" name="q10" value="C"> Goblin com Dardo</label>
       </div>
 
-      <button type="button" onclick="verResultadoTotal()">Ver Resultado Total</button>
+      <div class="botoes">
+        <button type="button" class="btn-voltar" id="btnVoltar">Voltar</button>
+        <button type="button" class="btn-finalizar" id="btnFinalizar">Finalizar Quiz</button>
+      </div>
     </form>
   </div>
 
   <script>
-    function verResultadoTotal() {
-      const respostas = {};
-      const gabarito = {
-        q6: "A",
-        q7: "B",
-        q8: "B",
-        q9: "C",
-        q10: "B"
-      };
+    window.onload = function () {
+      // Carregar respostas da parte 2, se existirem (para manter se voltar)
+      const respostasSalvas2 = JSON.parse(localStorage.getItem("respostas2") || "{}");
 
-      for (let i = 6; i <= 10; i++) {
-        const marcada = document.querySelector(`input[name="q${i}"]:checked`);
-        if (!marcada) {
-          alert("Responda todas as perguntas antes de ver o resultado.");
-          return;
+      for(let i = 6; i <= 10; i++) {
+        if (respostasSalvas2[`q${i}`]) {
+          const radio = document.querySelector(`input[name="q${i}"][value="${respostasSalvas2[`q${i}`]}"]`);
+          if (radio) radio.checked = true;
         }
-        respostas[`q${i}`] = marcada.value;
       }
 
-      localStorage.setItem("respostas2", JSON.stringify(respostas));
-      localStorage.setItem("gabarito2", JSON.stringify(gabarito));
-      window.location.href = "resultado.html";
+      document.getElementById("btnVoltar").addEventListener("click", function() {
+        // Não limpa respostas aqui, só volta para index.html
+        window.location.href = "index.html";
+      });
+
+      document.getElementById("btnFinalizar").addEventListener("click", function() {
+        const respostas = {};
+        for(let i = 6; i <= 10; i++) {
+          const marcada = document.querySelector(`input[name="q${i}"]:checked`);
+          if (!marcada) {
+            alert("Responda todas as perguntas antes de finalizar.");
+            return;
+          }
+          respostas[`q${i}`] = marcada.value;
+        }
+
+        localStorage.setItem("respostas2", JSON.stringify(respostas));
+        localStorage.setItem("gabarito2", JSON.stringify({
+          q6: "C",
+          q7: "A",
+          q8: "A",
+          q9: "A",
+          q10: "C"
+        }));
+
+        // Leva para tela de resultado
+        window.location.href = "resultado.html";
+      });
     }
   </script>
 </body>
