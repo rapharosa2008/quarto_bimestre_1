@@ -66,7 +66,7 @@
       margin-right: 10px;
       cursor: pointer;
     }
-    button {
+    #btnNext {
       display: block;
       margin: 30px auto 0;
       padding: 12px 30px;
@@ -77,8 +77,9 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s;
+      user-select: none;
     }
-    button:hover {
+    #btnNext:hover {
       background-color: #0056b3;
     }
   </style>
@@ -87,77 +88,66 @@
   <div class="container">
     <h1>Quiz Clash Royale - Página 1</h1>
 
-    <form id="form1">
-      <div class="pergunta">
-        <p><strong>1. Qual é a arena inicial do Clash Royale?</strong></p>
-        <label><input type="radio" name="q1" value="A"> Arena Selvagem</label>
-        <label><input type="radio" name="q1" value="B"> Arena do Treinador</label>
-        <label><input type="radio" name="q1" value="C"> Campo de Treinamento</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>1. Qual é a arena inicial do Clash Royale?</strong></p>
+      <label><input type="radio" name="q1" value="A"> Arena Selvagem</label>
+      <label><input type="radio" name="q1" value="B"> Arena do Treinador</label>
+      <label><input type="radio" name="q1" value="C"> Campo de Treinamento</label>
+    </div>
 
-      <div class="pergunta">
-        <p><strong>2. Qual carta é considerada lendária?</strong></p>
-        <label><input type="radio" name="q2" value="A"> Cavaleiro</label>
-        <label><input type="radio" name="q2" value="B"> Mago de Gelo</label>
-        <label><input type="radio" name="q2" value="C"> Bombardeiro</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>2. Qual carta é considerada lendária?</strong></p>
+      <label><input type="radio" name="q2" value="A"> Cavaleiro</label>
+      <label><input type="radio" name="q2" value="B"> Mago de Gelo</label>
+      <label><input type="radio" name="q2" value="C"> Bombardeiro</label>
+    </div>
 
-      <div class="pergunta">
-        <p><strong>3. Quantas cartas você pode ter em um deck de batalha?</strong></p>
-        <label><input type="radio" name="q3" value="A"> 8</label>
-        <label><input type="radio" name="q3" value="B"> 5</label>
-        <label><input type="radio" name="q3" value="C"> 10</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>3. Quantas cartas você pode ter em um deck de batalha?</strong></p>
+      <label><input type="radio" name="q3" value="A"> 8</label>
+      <label><input type="radio" name="q3" value="B"> 5</label>
+      <label><input type="radio" name="q3" value="C"> 10</label>
+    </div>
 
-      <div class="pergunta">
-        <p><strong>4. Qual carta pode gerar esqueletos constantemente?</strong></p>
-        <label><input type="radio" name="q4" value="A"> Gelo</label>
-        <label><input type="radio" name="q4" value="B"> Cabana de Esqueletos</label>
-        <label><input type="radio" name="q4" value="C"> Lápide</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>4. Qual carta pode gerar esqueletos constantemente?</strong></p>
+      <label><input type="radio" name="q4" value="A"> Gelo</label>
+      <label><input type="radio" name="q4" value="B"> Cabana de Esqueletos</label>
+      <label><input type="radio" name="q4" value="C"> Lápide</label>
+    </div>
 
-      <div class="pergunta">
-        <p><strong>5. Qual é o custo de elixir da carta "P.E.K.K.A"?</strong></p>
-        <label><input type="radio" name="q5" value="A"> 7</label>
-        <label><input type="radio" name="q5" value="B"> 5</label>
-        <label><input type="radio" name="q5" value="C"> 9</label>
-      </div>
+    <div class="pergunta">
+      <p><strong>5. Qual é o custo de elixir da carta "P.E.K.K.A"?</strong></p>
+      <label><input type="radio" name="q5" value="A"> 7</label>
+      <label><input type="radio" name="q5" value="B"> 5</label>
+      <label><input type="radio" name="q5" value="C"> 9</label>
+    </div>
 
-      <button type="button" id="btnNext">Próxima Página</button>
-    </form>
+    <button id="btnNext" type="button">Próxima Página</button>
   </div>
 
   <script>
-    // Recarregar respostas salvas para preencher os inputs ao voltar para a página
-    window.onload = function() {
+    // Carregar respostas salvas e marcar opções ao carregar a página
+    window.onload = () => {
       const respostasSalvas = JSON.parse(localStorage.getItem("respostas1") || "{}");
-      for (const key in respostasSalvas) {
-        const radio = document.querySelector(`input[name="${key}"][value="${respostasSalvas[key]}"]`);
+      for (const q in respostasSalvas) {
+        const radio = document.querySelector(`input[name="${q}"][value="${respostasSalvas[q]}"]`);
         if (radio) radio.checked = true;
       }
     };
 
-    document.getElementById('btnNext').addEventListener('click', function() {
+    document.getElementById('btnNext').addEventListener('click', () => {
       const respostas = {};
-      const gabarito = {
-        q1: "C",
-        q2: "B",
-        q3: "A",
-        q4: "B",
-        q5: "A"
-      };
-
       for (let i = 1; i <= 5; i++) {
-        const marcada = document.querySelector(`input[name="q${i}"]:checked`);
-        if (!marcada) {
-          alert("Responda todas as perguntas antes de continuar.");
+        const sel = document.querySelector(`input[name="q${i}"]:checked`);
+        if (!sel) {
+          alert("Por favor, responda todas as perguntas antes de continuar.");
           return;
         }
-        respostas[`q${i}`] = marcada.value;
+        respostas[`q${i}`] = sel.value;
       }
-
       localStorage.setItem("respostas1", JSON.stringify(respostas));
-      localStorage.setItem("gabarito1", JSON.stringify(gabarito));
+      // Vai para a próxima página
       window.location.href = "pagina2.html";
     });
   </script>
