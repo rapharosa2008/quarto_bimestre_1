@@ -2,139 +2,19 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Quiz Clash Royale - Página 1</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      position: relative;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      width: 180px;
-      height: 100vh;
-      background-size: contain;
-      background-repeat: no-repeat;
-      background-position: center;
-      opacity: 0.15;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    body::before {
-      left: 0;
-      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/7/7f/Prince_Icon.png');
-    }
-
-    body::after {
-      right: 0;
-      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/1/15/Mega_Minion_Icon.png');
-    }
-
-    .container {
-      max-width: 700px;
-      background: white;
-      padding: 25px 40px;
-      border-radius: 10px;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.2);
-      position: relative;
-      z-index: 1;
-      margin: 40px;
-      width: 100%;
-      box-sizing: border-box;
-    }
-
-    h1 {
-      text-align: center;
-      color: #333;
-      margin-bottom: 30px;
-    }
-
-    .pergunta {
-      margin-bottom: 25px;
-    }
-
-    label {
-      display: block;
-      margin: 8px 0;
-      padding: 8px 12px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    label:hover {
-      background-color: #f0f8ff;
-    }
-
-    button {
-      display: block;
-      margin: 30px auto 0;
-      padding: 12px 30px;
-      font-size: 18px;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fortnite Info</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Quiz Clash Royale</h1>
-
-    <div class="pergunta">
-      <p><strong>1. Qual é a arena inicial do Clash Royale?</strong></p>
-      <label><input type="radio" name="q1" value="A"> Arena Selvagem</label>
-      <label><input type="radio" name="q1" value="B"> Arena do Treinador</label>
-      <label><input type="radio" name="q1" value="C"> Campo de Treinamento</label>
-    </div>
-
-    <div class="pergunta">
-      <p><strong>2. Qual carta é considerada lendária?</strong></p>
-      <label><input type="radio" name="q2" value="A"> Cavaleiro</label>
-      <label><input type="radio" name="q2" value="B"> Mago de Gelo</label>
-      <label><input type="radio" name="q2" value="C"> Bombardeiro</label>
-    </div>
-
-    <div class="pergunta">
-      <p><strong>3. Quantas cartas você pode ter em um deck de batalha?</strong></p>
-      <label><input type="radio" name="q3" value="A"> 8</label>
-      <label><input type="radio" name="q3" value="B"> 5</label>
-      <label><input type="radio" name="q3" value="C"> 10</label>
-    </div>
-
-    <div class="pergunta">
-      <p><strong>4. Qual carta pode gerar esqueletos constantemente?</strong></p>
-      <label><input type="radio" name="q4" value="A"> Gelo</label>
-      <label><input type="radio" name="q4" value="B"> Cabana de Esqueletos</label>
-      <label><input type="radio" name="q4" value="C"> Lápide</label>
-    </div>
-
-    <div class="pergunta">
-      <p><strong>5. Qual é o custo de elixir da carta "P.E.K.K.A"?</strong></p>
-      <label><input type="radio" name="q5" value="A"> 7</label>
-      <label><input type="radio" name="q5" value="B"> 5</label>
-      <label><input type="radio" name="q5" value="C"> 9</label>
-    </div>
-
-    <button id="btnNext" link href="pagina2.html" >Próxima Página</button>
+  <div class="tela ativa">
+    <h1>O que é Fortnite?</h1>
+    <p>
+      Fortnite é um jogo eletrônico multiplayer de batalha royale criado pela Epic Games. Com visual estilizado e jogabilidade dinâmica, tornou-se um fenômeno mundial, conhecido por suas danças, construções e eventos ao vivo.
+    </p>
+    <a href="imagem.html">
+      <button>Ver Imagem</button>
+    </a>
   </div>
 </body>
 </html>
