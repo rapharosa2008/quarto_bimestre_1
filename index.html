@@ -2,7 +2,8 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
-  <title>Quiz Clash Royale</title>
+  <title>Quiz Clash Royale - Parte 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
       margin: 0;
@@ -17,7 +18,6 @@
       overflow-x: hidden;
     }
 
-    /* Fundo esquerdo */
     body::before {
       content: "";
       position: fixed;
@@ -34,7 +34,6 @@
       z-index: 0;
     }
 
-    /* Fundo direito */
     body::after {
       content: "";
       position: fixed;
@@ -93,10 +92,13 @@
       cursor: pointer;
     }
 
+    .botoes {
+      margin-top: 30px;
+      text-align: center;
+    }
+
     button {
-      display: block;
-      margin: 30px auto 0;
-      padding: 12px 30px;
+      padding: 12px 40px;
       font-size: 18px;
       background-color: #007bff;
       color: white;
@@ -109,76 +111,89 @@
     button:hover {
       background-color: #0056b3;
     }
-
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Quiz Clash Royale</h1>
+    <h1>Quiz Clash Royale - Parte 1</h1>
 
     <form id="form1">
       <div class="pergunta">
-        <p><strong>1. Qual é a arena inicial do Clash Royale?</strong></p>
-        <label><input type="radio" name="q1" value="A"> Arena Selvagem</label>
-        <label><input type="radio" name="q1" value="B"> Arena do Treinador</label>
-        <label><input type="radio" name="q1" value="C"> Campo de Treinamento</label>
+        <p><strong>1. Qual é a carta mais rara do jogo?</strong></p>
+        <label><input type="radio" name="q1" value="A"> Gigante</label>
+        <label><input type="radio" name="q1" value="B"> Princesa</label>
+        <label><input type="radio" name="q1" value="C"> Bárbaros</label>
       </div>
 
       <div class="pergunta">
-        <p><strong>2. Qual carta é considerada lendária?</strong></p>
-        <label><input type="radio" name="q2" value="A"> Cavaleiro</label>
-        <label><input type="radio" name="q2" value="B"> Mago de Gelo</label>
-        <label><input type="radio" name="q2" value="C"> Bombardeiro</label>
+        <p><strong>2. Qual é o custo médio de elixir da carta 'Mago'? </strong></p>
+        <label><input type="radio" name="q2" value="A"> 5</label>
+        <label><input type="radio" name="q2" value="B"> 4</label>
+        <label><input type="radio" name="q2" value="C"> 3</label>
       </div>
 
       <div class="pergunta">
-        <p><strong>3. Quantas cartas você pode ter em um deck de batalha?</strong></p>
-        <label><input type="radio" name="q3" value="A"> 8</label>
-        <label><input type="radio" name="q3" value="B"> 5</label>
-        <label><input type="radio" name="q3" value="C"> 10</label>
+        <p><strong>3. Qual dessas cartas é um tanque?</strong></p>
+        <label><input type="radio" name="q3" value="A"> Golem</label>
+        <label><input type="radio" name="q3" value="B"> Arqueiras</label>
+        <label><input type="radio" name="q3" value="C"> Bruxa</label>
       </div>
 
       <div class="pergunta">
-        <p><strong>4. Qual carta pode gerar esqueletos constantemente?</strong></p>
-        <label><input type="radio" name="q4" value="A"> Gelo</label>
-        <label><input type="radio" name="q4" value="B"> Cabana de Esqueletos</label>
-        <label><input type="radio" name="q4" value="C"> Lápide</label>
+        <p><strong>4. Qual carta tem a habilidade de enfeitiçar tropas inimigas?</strong></p>
+        <label><input type="radio" name="q4" value="A"> Feiticeira</label>
+        <label><input type="radio" name="q4" value="B"> Mago Elétrico</label>
+        <label><input type="radio" name="q4" value="C"> Bruxa</label>
       </div>
 
       <div class="pergunta">
-        <p><strong>5. Qual é o custo de elixir da carta "P.E.K.K.A"?</strong></p>
-        <label><input type="radio" name="q5" value="A"> 7</label>
-        <label><input type="radio" name="q5" value="B"> 5</label>
-        <label><input type="radio" name="q5" value="C"> 9</label>
+        <p><strong>5. Qual carta causa dano em área?</strong></p>
+        <label><input type="radio" name="q5" value="A"> Mosqueteira</label>
+        <label><input type="radio" name="q5" value="B"> Bombardeiro</label>
+        <label><input type="radio" name="q5" value="C"> Espírito de Gelo</label>
       </div>
 
-      <button type="button" onclick="salvarEIrPraPagina2()">Próxima Página</button>
+      <div class="botoes">
+        <button type="button" id="btnProximo">Próxima etapa</button>
+      </div>
     </form>
   </div>
 
   <script>
-    function salvarEIrPraPagina2() {
-      const respostas = {};
-      const gabarito = {
-        q1: "C",
-        q2: "B",
-        q3: "A",
-        q4: "B",
-        q5: "A"
-      };
+    window.onload = function () {
+      const respostasSalvas = JSON.parse(localStorage.getItem("respostas1") || "{}");
 
-      for (let i = 1; i <= 5; i++) {
-        const marcada = document.querySelector(`input[name="q${i}"]:checked`);
-        if (!marcada) {
-          alert("Responda todas as perguntas antes de continuar.");
-          return;
+      // Carregar respostas salvas para manter seleção após voltar
+      for(let i = 1; i <= 5; i++) {
+        if (respostasSalvas[`q${i}`]) {
+          const radio = document.querySelector(`input[name="q${i}"][value="${respostasSalvas[`q${i}`]}"]`);
+          if (radio) radio.checked = true;
         }
-        respostas[`q${i}`] = marcada.value;
       }
 
-      localStorage.setItem("respostas1", JSON.stringify(respostas));
-      localStorage.setItem("gabarito1", JSON.stringify(gabarito));
-      window.location.href = "pagina2.html";
+      document.getElementById("btnProximo").addEventListener("click", function () {
+        const respostas = {};
+        for (let i = 1; i <= 5; i++) {
+          const marcada = document.querySelector(`input[name="q${i}"]:checked`);
+          if (!marcada) {
+            alert("Responda todas as perguntas antes de continuar.");
+            return;
+          }
+          respostas[`q${i}`] = marcada.value;
+        }
+
+        // Salva respostas e gabarito no localStorage
+        localStorage.setItem("respostas1", JSON.stringify(respostas));
+        localStorage.setItem("gabarito1", JSON.stringify({
+          q1: "B",
+          q2: "B",
+          q3: "A",
+          q4: "B",
+          q5: "B"
+        }));
+
+        window.location.href = "pagina2.html";
+      });
     }
   </script>
 </body>
