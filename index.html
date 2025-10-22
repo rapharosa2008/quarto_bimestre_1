@@ -5,30 +5,41 @@
   <title>Quiz Clash Royale - Página 1</title>
   <style>
     body {
-      margin: 0; padding: 0;
+      margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f0f0f0;
-      display: flex; justify-content: center; align-items: center;
-      min-height: 100vh; position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      position: relative;
     }
-    body::before {
-      content: "";
-      position: fixed; left: 0; top: 0;
-      width: 180px; height: 100vh;
-      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/7/7f/Prince_Icon.png');
-      background-size: contain; background-repeat: no-repeat;
-      background-position: center; opacity: 0.15;
-      pointer-events: none; z-index: 0;
-    }
+
+    body::before,
     body::after {
       content: "";
-      position: fixed; right: 0; top: 0;
-      width: 180px; height: 100vh;
-      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/1/15/Mega_Minion_Icon.png');
-      background-size: contain; background-repeat: no-repeat;
-      background-position: center; opacity: 0.15;
-      pointer-events: none; z-index: 0;
+      position: fixed;
+      top: 0;
+      width: 180px;
+      height: 100vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
     }
+
+    body::before {
+      left: 0;
+      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/7/7f/Prince_Icon.png');
+    }
+
+    body::after {
+      right: 0;
+      background-image: url('https://static.wikia.nocookie.net/clashroyale/images/1/15/Mega_Minion_Icon.png');
+    }
+
     .container {
       max-width: 700px;
       background: white;
@@ -41,14 +52,17 @@
       width: 100%;
       box-sizing: border-box;
     }
+
     h1 {
       text-align: center;
       color: #333;
       margin-bottom: 30px;
     }
+
     .pergunta {
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
+
     label {
       display: block;
       margin: 8px 0;
@@ -57,16 +71,13 @@
       border-radius: 6px;
       cursor: pointer;
       transition: background-color 0.3s;
-      user-select: none;
     }
+
     label:hover {
       background-color: #f0f8ff;
     }
-    input[type="radio"] {
-      margin-right: 10px;
-      cursor: pointer;
-    }
-    #btnNext {
+
+    button {
       display: block;
       margin: 30px auto 0;
       padding: 12px 30px;
@@ -77,16 +88,16 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background-color 0.3s;
-      user-select: none;
     }
-    #btnNext:hover {
+
+    button:hover {
       background-color: #0056b3;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Quiz Clash Royale - Página 1</h1>
+    <h1>Quiz Clash Royale</h1>
 
     <div class="pergunta">
       <p><strong>1. Qual é a arena inicial do Clash Royale?</strong></p>
@@ -123,33 +134,7 @@
       <label><input type="radio" name="q5" value="C"> 9</label>
     </div>
 
-    <button id="btnNext" type="button">Próxima Página</button>
+    <button id="btnNext">Próxima Página</button>
   </div>
-
-  <script>
-    // Carregar respostas salvas e marcar opções ao carregar a página
-    window.onload = () => {
-      const respostasSalvas = JSON.parse(localStorage.getItem("respostas1") || "{}");
-      for (const q in respostasSalvas) {
-        const radio = document.querySelector(`input[name="${q}"][value="${respostasSalvas[q]}"]`);
-        if (radio) radio.checked = true;
-      }
-    };
-
-    document.getElementById('btnNext').addEventListener('click', () => {
-      const respostas = {};
-      for (let i = 1; i <= 5; i++) {
-        const sel = document.querySelector(`input[name="q${i}"]:checked`);
-        if (!sel) {
-          alert("Por favor, responda todas as perguntas antes de continuar.");
-          return;
-        }
-        respostas[`q${i}`] = sel.value;
-      }
-      localStorage.setItem("respostas1", JSON.stringify(respostas));
-      // Vai para a próxima página
-      window.location.href = "pagina2.html";
-    });
-  </script>
 </body>
 </html>
